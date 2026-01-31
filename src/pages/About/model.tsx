@@ -101,7 +101,7 @@ export default function Modal({ modal, projects }: any) {
               <img
                 src={`/images/${project.src}`}
                 alt="preview"
-                className="h-full w-full"
+                className="h-full w-full object-cover object-top"
                 draggable={false}
               />
             </div>

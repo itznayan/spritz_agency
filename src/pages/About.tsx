@@ -10,7 +10,7 @@ const About = () => {
     {
       title: "Nayan Mahera",
       role: "Frontend Developer",
-      src: "img1",
+      src: "/nayan1.png",
       color: "#000000",
     },
     {
