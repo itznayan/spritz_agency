@@ -1,0 +1,48 @@
+# Dependencies
+node_modules
+dist
+.pnp
+.pnp.js
+
+# Environment variables - IMPORTANT: Never commit .env files!
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.env*.local
+*.env
+
+# Build outputs
+build
+dist
+*.log
+*.tar.gz
+
+# IDE and editor files
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Server
+server/public
+
+# Vite
+vite.config.ts.*
+.vite
+
+# TypeScript
+*.tsbuildinfo
+
+# Testing
+coverage
+.nyc_output
+
+# Misc
+*.pem
+*.key
+secrets.json
+config.json
