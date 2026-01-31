@@ -61,8 +61,7 @@ const Navbar = ({ isActive, setIsActive }) => {
       initial="initial"
       animate="enter"
       exit="exit"
-      className="fixed top-0 right-0 h-screen"
-      style={{ backgroundColor: '#ff7a1a' }}
+      className="fixed top-0 right-0 h-screen bg-cyan-800"
     >
       {/* CURVE (moves WITH menu) */}
 

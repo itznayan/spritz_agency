@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const Demo = () => {
   return (
-    <section className="w-full min-h-screen bg-[#317abf]">
+    <section className="w-full min-h-screen bg-slate-300">
       <div className="max-w-6xl mx-auto px-6 lg:px-0 py-16 lg:py-24">
         {/* PAGE HEADER */}
         <div className="mb-12">

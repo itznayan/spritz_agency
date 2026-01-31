@@ -38,34 +38,36 @@ export function Navigation() {
       }}
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
-      className="fixed top-0 z-50 w-full h-20 flex items-center justify-between px-12 backdrop-blur-md"
-      style={{ backgroundColor: '#E5E5E5' }}
+      className="fixed top-0 z-50 w-full h-20 bg-slate-200 flex items-center justify-between backdrop-blur-md"
     >
-      <div className="flex w-full  pl-8 items-center justify-between">
-        {/* LOGO */}
-        <div>
-          <Link href="/" className="flex items-center gap-2 group">
-            <img
-              src="public\images\flogo.png"
-              className="h-8 w-auto transition-transform scale-[6] duration-300"
-              alt="Logo"
-            />
+      {/* LOGO */}
+      <div>
+        <Link href="/" className="flex items-center gap-2 group">
+          <img
+            src="public\flogo.png"
+            className="h-[15vw] w-auto transition-transform duration-300"
+            alt="Logo"
+          />
 
-            {/* <span className="font-display text-3xl font-bold tracking-tight text-white">
+          {/* <span className="font-display text-3xl font-bold tracking-tight text-white">
             Spritz
             </span> */}
-          </Link>
-        </div>
-
-        {/* MENU */}
-        {/* <Index /> */}
-        <div className="fixed right-0 mx-8 z-10 rounded-full p-1 px-2" style={{ backgroundColor: '#fff' }}>
-          <Hamburger toggled={isActive} toggle={setIsActive} direction="left" />
-        </div>
-        <AnimatePresence mode="wait">
-          {isActive && <Navbar isActive={isActive} setIsActive={setIsActive} />}
-        </AnimatePresence>
+        </Link>
       </div>
+
+      {/* MENU */}
+      {/* <Index /> */}
+      <div className="fixed right-0 mx-8 z-10 rounded-full p-1 px-2 bg-stone-800">
+        <Hamburger
+          toggled={isActive}
+          color="white"
+          toggle={setIsActive}
+          direction="left"
+        />
+      </div>
+      <AnimatePresence mode="wait">
+        {isActive && <Navbar isActive={isActive} setIsActive={setIsActive} />}
+      </AnimatePresence>
     </motion.nav>
   );
 }

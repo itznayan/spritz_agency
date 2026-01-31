@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div
       ref={scrollRef}
-      className="w-full min-h-screen bg-[#CC1E1A]  text-white "
+      className="w-full min-h-screen bg-[#CC1E1A] pt-8  text-white "
     >
       <Hero />
       <Service />
