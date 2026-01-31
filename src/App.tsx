@@ -23,7 +23,7 @@ function Router() {
   const [location] = useLocation();
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
+    <AnimatePresence mode="wait" initial={true}>
       <Curve key={location}>
         <Switch location={location}>
           <Route path="/" component={Home} />

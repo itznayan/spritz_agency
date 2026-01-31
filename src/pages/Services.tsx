@@ -30,22 +30,26 @@ export default function Services() {
       <div className="h-full  font-body">
         <section className="heading pt-32 pb-20 w-full bg-zinc-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-7xl font-display font-extrabold font-mono text-zinc-200 mb-6"
-            >
-              Our Services
-            </motion.h1>
+            <TextAni delay={0.75} blockColor="#94A3B8">
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-4xl md:text-7xl font-display font-extrabold font-mono text-zinc-200 mb-6"
+              >
+                Our Services
+              </motion.h1>
+            </TextAni>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-xl text-zinc-200 max-w-2xl mx-auto"
-            >
-              A comprehensive digital partner for modern hospitality brands.
-            </motion.p>
+            <TextAni delay={0.75} blockColor="#94A3B8">
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                className="text-xl text-zinc-200 max-w-2xl mx-auto"
+              >
+                A comprehensive digital partner for modern hospitality brands.
+              </motion.p>
+            </TextAni>
           </div>
         </section>
 

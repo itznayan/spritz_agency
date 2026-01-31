@@ -73,7 +73,7 @@ const ServiceAni = () => {
               pin: card,
               pinSpacing: false,
             },
-          }
+          },
         );
 
         gsap.to(cardInner, {
@@ -97,7 +97,7 @@ const ServiceAni = () => {
         });
       });
     },
-    { scope: container }
+    { scope: container },
   );
 
   return (
@@ -106,25 +106,19 @@ const ServiceAni = () => {
       <div className="card" id="card-1">
         <div className="card-inner">
           <div className="card-info text-zinc-200">
-            <TextAni delay={0.75} blockColor={BLOCK_COLORS.card1}>
-              <p>High-performance, scalable websites</p>
-            </TextAni>
+            <p>High-performance, scalable websites</p>
           </div>
 
           <div className="card-title text-zinc-200">
-            <TextAni delay={0.75} blockColor={BLOCK_COLORS.card1}>
-              <h1>Web Development</h1>
-            </TextAni>
+            <h1>Web Development</h1>
           </div>
 
           <div className="card-desc text-zinc-100">
-            <TextAni blockColor={BLOCK_COLORS.card1}>
-              <p>
-                We build fast, SEO-friendly, and fully responsive websites using
-                modern frameworks like React and Next.js, focused on performance
-                and scalability.
-              </p>
-            </TextAni>
+            <p>
+              We build fast, SEO-friendly, and fully responsive websites using
+              modern frameworks like React and Next.js, focused on performance
+              and scalability.
+            </p>
           </div>
 
           <div className="card-img">
@@ -137,25 +131,19 @@ const ServiceAni = () => {
       <div className="card" id="card-2">
         <div className="card-inner">
           <div className="card-info">
-            <TextAni blockColor={BLOCK_COLORS.card2}>
-              <p>Professional photo & video shoots</p>
-            </TextAni>
+            <p>Professional photo & video shoots</p>
           </div>
 
           <div className="card-title">
-            <TextAni blockColor={BLOCK_COLORS.card2}>
-              <h1>Content Creation</h1>
-            </TextAni>
+            <h1>Content Creation</h1>
           </div>
 
           <div className="card-desc">
-            <TextAni blockColor={BLOCK_COLORS.card2}>
-              <p>
-                We visit your location monthly to capture high-quality photo and
-                video content, helping your brand stand out across social
-                platforms.
-              </p>
-            </TextAni>
+            <p>
+              We visit your location monthly to capture high-quality photo and
+              video content, helping your brand stand out across social
+              platforms.
+            </p>
           </div>
 
           <div className="card-img">
@@ -168,25 +156,19 @@ const ServiceAni = () => {
       <div className="card" id="card-3">
         <div className="card-inner">
           <div className="card-info">
-            <TextAni blockColor={BLOCK_COLORS.card3}>
-              <p>Data-driven growth strategies</p>
-            </TextAni>
+            <p>Data-driven growth strategies</p>
           </div>
 
           <div className="card-title">
-            <TextAni blockColor={BLOCK_COLORS.card3}>
-              <h1>Analytics & Growth</h1>
-            </TextAni>
+            <h1>Analytics & Growth</h1>
           </div>
 
           <div className="card-desc">
-            <TextAni blockColor={BLOCK_COLORS.card3}>
-              <p>
-                Data-driven insights and analytics to improve your reach,
-                performance, and customer retention through informed
-                decision-making.
-              </p>
-            </TextAni>
+            <p>
+              Data-driven insights and analytics to improve your reach,
+              performance, and customer retention through informed
+              decision-making.
+            </p>
           </div>
 
           <div className="card-img">
@@ -199,25 +181,19 @@ const ServiceAni = () => {
       <div className="card" id="card-4">
         <div className="card-inner">
           <div className="card-info text-zinc-200">
-            <TextAni blockColor={BLOCK_COLORS.card4}>
-              <p>Complete Instagram & Facebook handling</p>
-            </TextAni>
+            <p>Complete Instagram & Facebook handling</p>
           </div>
 
           <div className="card-title text-zinc-100">
-            <TextAni blockColor={BLOCK_COLORS.card4}>
-              <h1>Management</h1>
-            </TextAni>
+            <h1>Management</h1>
           </div>
 
           <div className="card-desc text-zinc-100">
-            <TextAni blockColor={BLOCK_COLORS.card4}>
-              <p>
-                Complete handling of your Instagram and Facebook presence,
-                including content posting, engagement, and growth-focused
-                strategies.
-              </p>
-            </TextAni>
+            <p>
+              Complete handling of your Instagram and Facebook presence,
+              including content posting, engagement, and growth-focused
+              strategies.
+            </p>
           </div>
 
           <div className="card-img">
