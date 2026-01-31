@@ -44,7 +44,7 @@ export function Navigation() {
       <div>
         <Link href="/" className="flex items-center gap-2 group">
           <img
-            src="public\flogo.png"
+            src="/flogo.png"
             className="h-[15vw] w-auto transition-transform duration-300"
             alt="Logo"
           />
