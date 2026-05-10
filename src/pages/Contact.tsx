@@ -52,7 +52,9 @@ export default function Contact() {
 
               <TextAni blockColor="#94A3B8">
                 <p className="text-lg text-zinc-200 mb-12">
-                From the city to clients around the world, we help brands turn ideas into meaningful experiences. Reach out for inquiries or custom project quotes.
+                  From the city to clients around the world, we help brands turn
+                  ideas into meaningful experiences. Reach out for inquiries or
+                  custom project quotes.
                 </p>
               </TextAni>
 
@@ -60,7 +62,7 @@ export default function Contact() {
                 {/* EMAIL */}
                 <div className="flex items-start space-x-4">
                   <div className="p-3 bg-secondary rounded-xl text-accent">
-                    <Mail className="h-6 w-6" />
+                    <Mail className="h-6 w-6 invert" />
                   </div>
                   <div>
                     <TextAni blockColor="#94A3B8">
@@ -86,7 +88,7 @@ export default function Contact() {
                 {/* PHONE */}
                 <div className="flex items-start space-x-4">
                   <div className="p-3 bg-secondary rounded-xl text-accent">
-                    <Phone className="h-6 w-6" />
+                    <Phone className="invert h-6 w-6" />
                   </div>
                   <div>
                     <TextAni blockColor="#94A3B8">
@@ -96,10 +98,10 @@ export default function Contact() {
                     </TextAni>
 
                     <TextAni blockColor="#94A3B8">
-                      <p className="text-zinc-300">+91 9909220121</p>
+                      <p className="text-zinc-300">+91 XXXXXXXXXX</p>
                     </TextAni>
                     <TextAni blockColor="#94A3B8">
-                      <p className="text-zinc-300">+91 9978672740</p>
+                      <p className="text-zinc-300">+91 XXXXXXXXXX</p>
                     </TextAni>
 
                     {/* <TextAni blockColor="#94A3B8">
@@ -127,7 +129,10 @@ export default function Contact() {
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium mb-2"
+                    >
                       Name
                     </label>
                     <input
@@ -159,7 +164,10 @@ export default function Contact() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium mb-2"
+                    >
                       Email
                     </label>
                     <input
@@ -173,7 +181,10 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium mb-2">
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-medium mb-2"
+                    >
                       Phone (Optional)
                     </label>
                     <input
@@ -187,7 +198,10 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium mb-2"
+                  >
                     Message
                   </label>
                   <textarea

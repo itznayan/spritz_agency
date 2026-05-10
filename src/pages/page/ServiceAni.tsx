@@ -69,7 +69,7 @@ const ServiceAni = () => {
               trigger: cards[index + 1],
               start: "top 95%",
               end: "+=150%", // holds longer = feels slower
-              scrub: 2, // smooth response
+              scrub: 1, // smooth response
               pin: card,
               pinSpacing: false,
             },
@@ -82,7 +82,7 @@ const ServiceAni = () => {
             trigger: cards[index + 1],
             start: "top 75%",
             end: "top -25%",
-            scrub: 2,
+            scrub: 1,
           },
         });
 
@@ -92,7 +92,7 @@ const ServiceAni = () => {
             trigger: cards[index + 1],
             start: "top -25%",
             end: "top -25%",
-            scrub: 2,
+            scrub: 1,
           },
         });
       });

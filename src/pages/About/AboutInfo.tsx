@@ -39,7 +39,6 @@ type AboutInfoProps = {
   setModal: (data: { active: boolean; index: number }) => void;
 };
 
-
 export default function AboutInfo({
   index,
   title,

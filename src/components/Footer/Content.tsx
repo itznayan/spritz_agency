@@ -111,8 +111,8 @@ const Nav = () => {
       <div className="flex flex-col gap-2 text-gray-400">
         <h3 className="mb-2 uppercase text-white">Get in Touch</h3>
         <p>admin@spritzstudio.in</p>
-        <p>+91 9909220121</p>
-        <p>+91 9978672740</p>
+        <p>+91 XXXXXXXXXX</p>
+        <p>+91 XXXXXXXXXX</p>
         {/* <p>Gujrat,India</p> */}
       </div>
     </div>
