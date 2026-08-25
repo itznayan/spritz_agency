@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:wght@100..900&family=Playfair+Display:wght@400..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:wght@100..900&family=Playfair+Display:wght@400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap");
 
 * {
   margin: 0;
@@ -17,15 +16,12 @@
   position: relative;
   width: max-content;
   display: block;
-
-
 }
 
 .block-line {
   position: relative;
   display: block;
 }
-
 
 .block-revealer {
   position: absolute;
@@ -39,162 +35,635 @@
 }
 
 #card-1 .card-inner {
-  background-color: #22134E;
+  background-color: #22134e;
   /* Purple */
 }
 
 #card-2 .card-inner {
   /* background-color: #0891b2; */
-  background-color: #FCED6C;
+  background-color: #fced6c;
   /* Cyan */
 }
 
 #card-3 .card-inner {
-  background-color: #00BDDD;
+  background-color: #00bddd;
   /* background-color: #00C9F5; */
   /* Orange */
 }
 
 #card-4 .card-inner {
-  background-color: #0C3E35;
+  background-color: #0c3e35;
   /* Dark Neutral */
 }
+/* =========================================================
+   SERVICE CARD STACK
+   ========================================================= */
 
-
-/* ===== SECTION ===== */
 .sticky-card {
   position: relative;
   width: 100%;
-  background-color: #000;
-
+  max-width: 100%;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
-/* ===== CARD WRAPPER ===== */
+/* =========================================================
+   CARD
+   ========================================================= */
+
 .card {
-  position: sticky;
+  position: relative;
+
   width: 100%;
-  height: 125svh;
-  /* safe viewport height */
-  /* slate-600 */
-  transform-style: preserve-3d;
-  perspective: 1000px;
+  min-width: 100%;
+  height: 100vh;
+  min-height: 650px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  perspective: 1200px;
+
+  /* Prevent browser from creating horizontal overflow */
   overflow: hidden;
-  z-index: 1;
+
+  /* Important for GSAP pinning */
+  transform: translateZ(0);
 }
 
-/* ===== INNER CARD (ANIMATED) ===== */
+/* =========================================================
+   CARD INNER
+   ========================================================= */
+
 .card-inner {
   position: relative;
+
   width: 100%;
-  height: 100%;
-  transform-origin: 50% 100%;
-  will-change: transform;
-  display: flex;
-  flex-direction: column;
-  text-align: center
+  height: 100vh;
+  min-height: 650px;
+
+  padding: 50px;
+
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+
+  column-gap: 50px;
+
+  overflow: hidden;
+
+  transform-style: preserve-3d;
+  transform-origin: center center;
+
+  /*
+   * Helps GSAP maintain smooth GPU transforms.
+   */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  will-change: transform, opacity;
+
+  /*
+   * Required because GSAP animates this custom property.
+   */
+  --after-opacity: 0;
 }
 
-/* ===== INFO BLOCK ===== */
-.card-info {
-  width: 35%;
-  margin: 2em 0 2em 0;
-  padding: 0 4em;
-  text-align: left;
-}
-
-.card-info p {
-  text-transform: uppercase;
-  font-size: 0.9rem;
-  font-weight: 500;
-
-}
-
-/* ===== TITLE ===== */
-.card-title h1 {
-  text-transform: uppercase;
-  font-family: monospace;
-  font-size: 10em;
-  line-height: 1;
-  letter-spacing: -0.4rem;
-}
-
-/* ===== DESCRIPTION ===== */
-.card-desc {
-  width: 60%;
-  margin: 0 auto 0 auto;
-
-}
-
-.card-desc p {
-  text-transform: uppercase;
-  font-size: 1.5rem;
-
-}
-
-/* ===== IMAGE / MEDIA BLOCK ===== */
-.card-img {
-
-  margin-top: 3.5em;
-  /* height: 100vh; */
-
-}
-
-.card-img img {
-  width: 100%;
-
-  max-height: 100%;
-  object-fit: fill;
-  background-color: #000;
-}
-
+/* =========================================================
+   OPTIONAL CARD OVERLAY
+   ========================================================= */
 
 .card-inner::after {
   content: "";
+
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-  opacity: var(--after-opacity, 0);
-  will-change: opacity;
+
+  inset: 0;
+
+  z-index: 10;
+
   pointer-events: none;
-  z-index: 2;
+
+  background: rgba(0, 0, 0, var(--after-opacity));
+
+  opacity: var(--after-opacity);
+
+  transition: none;
 }
 
-@media (max-width: 1000px) {
+/* =========================================================
+   CARD INFO
+   ========================================================= */
 
-  h1,
-  .card-desc {
-    width: calc(100% - 4rem);
-    font-size: 3rem;
-    margin: 0 auto;
+.card-info {
+  position: relative;
+
+  z-index: 20;
+
+  grid-column: 1;
+  grid-row: 1;
+
+  align-self: start;
+
+  max-width: 500px;
+
+  font-size: 14px;
+
+  line-height: 1.4;
+
+  letter-spacing: 0.01em;
+}
+
+.card-info p {
+  margin: 0;
+}
+
+/* =========================================================
+   CARD TITLE
+   ========================================================= */
+
+.card-title {
+  position: relative;
+
+  z-index: 20;
+
+  grid-column: 1;
+  grid-row: 2;
+
+  align-self: center;
+
+  min-width: 0;
+}
+
+.card-title h1 {
+  margin: 0;
+
+  max-width: 750px;
+
+  font-size: clamp(4rem, 7vw, 8rem);
+
+  line-height: 0.85;
+
+  letter-spacing: -0.055em;
+
+  font-weight: 700;
+
+  word-break: normal;
+}
+
+/* =========================================================
+   CARD DESCRIPTION
+   ========================================================= */
+
+.card-desc {
+  position: relative;
+
+  z-index: 20;
+
+  grid-column: 1;
+  grid-row: 3;
+
+  align-self: end;
+
+  max-width: 560px;
+
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+
+  line-height: 1.5;
+}
+
+.card-desc p {
+  margin: 0;
+}
+
+/* =========================================================
+   CARD IMAGE
+   ========================================================= */
+
+.card-img {
+  position: relative;
+
+  z-index: 5;
+
+  grid-column: 2;
+  grid-row: 1 / 4;
+
+  width: 100%;
+  height: 100%;
+
+  min-width: 0;
+  min-height: 0;
+
+  overflow: hidden;
+}
+
+.card-img img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+
+  pointer-events: none;
+
+  /*
+   * Prevents tiny image rendering jumps during
+   * GSAP transforms.
+   */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* =========================================================
+   LARGE DESKTOP
+   ========================================================= */
+
+@media (min-width: 1440px) {
+  .card-inner {
+    padding: 60px;
+    column-gap: 70px;
+  }
+
+  .card-title h1 {
+    font-size: clamp(6rem, 7vw, 9rem);
   }
 
   .card-info {
-    width: 75%;
-    margin: auto;
-    padding: 4em 2em;
-    text-align: center;
+    font-size: 15px;
   }
 
+  .card-desc {
+    max-width: 600px;
+    font-size: 1.2rem;
+  }
+}
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 1025px) and (max-width: 1439px) {
+  .card-inner {
+    padding: 45px;
+    column-gap: 45px;
+  }
+
+  .card-title h1 {
+    font-size: clamp(4rem, 7vw, 7rem);
+  }
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1024px) {
+  .card {
+    height: 100vh;
+    min-height: 620px;
+  }
+
+  .card-inner {
+    height: 100vh;
+    min-height: 620px;
+
+    padding: 35px;
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr);
+
+    column-gap: 30px;
+  }
+
+  .card-info {
+    font-size: 13px;
+  }
+
+  .card-title h1 {
+    font-size: clamp(3.5rem, 8vw, 6rem);
+  }
+
+  .card-desc {
+    max-width: 450px;
+
+    font-size: 1rem;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .sticky-card {
+    width: 100%;
+    overflow-x: clip;
+  }
+
+  .card {
+    width: 100%;
+    min-width: 100%;
+
+    height: 100svh;
+    min-height: 620px;
+
+    display: flex;
+
+    align-items: stretch;
+    justify-content: stretch;
+
+    perspective: 1000px;
+  }
+
+  .card-inner {
+    width: 100%;
+    height: 100%;
+
+    min-height: 0;
+
+    padding: 24px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    gap: 16px;
+
+    overflow: hidden;
+
+    transform-style: preserve-3d;
+  }
+
+  /* -----------------------------------------
+     INFO
+     ----------------------------------------- */
+
+  .card-info {
+    order: 1;
+
+    width: 100%;
+
+    max-width: 100%;
+
+    flex-shrink: 0;
+
+    font-size: 12px;
+
+    line-height: 1.4;
+  }
+
+  /* -----------------------------------------
+     TITLE
+     ----------------------------------------- */
+
   .card-title {
-    font-size: 3rem;
+    order: 2;
+
+    width: 100%;
+
+    flex-shrink: 0;
+
+    min-width: 0;
+  }
+
+  .card-title h1 {
+    width: 100%;
+
+    max-width: 100%;
+
+    font-size: clamp(3rem, 13vw, 5rem);
+
+    line-height: 0.85;
+
+    letter-spacing: -0.055em;
+
+    overflow-wrap: break-word;
+  }
+
+  /* -----------------------------------------
+     DESCRIPTION
+     ----------------------------------------- */
+
+  .card-desc {
+    order: 3;
+
+    width: 100%;
+
+    max-width: 100%;
+
+    flex-shrink: 0;
+
+    font-size: 0.9rem;
+
+    line-height: 1.45;
   }
 
   .card-desc p {
-    font-size: 1.25rem;
+    width: 100%;
+  }
 
+  /* -----------------------------------------
+     IMAGE
+     ----------------------------------------- */
+
+  .card-img {
+    order: 4;
+
+    width: 100%;
+
+    height: 30vh;
+
+    min-height: 180px;
+    max-height: 280px;
+
+    flex-shrink: 0;
+
+    overflow: hidden;
+  }
+
+  .card-img img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .card {
+    min-height: 600px;
+  }
+
+  .card-inner {
+    padding: 20px;
+
+    gap: 14px;
+  }
+
+  /* INFO */
+
+  .card-info {
+    font-size: 11px;
+  }
+
+  /* TITLE */
+
+  .card-title h1 {
+    font-size: clamp(2.7rem, 14vw, 4rem);
+
+    line-height: 0.86;
+  }
+
+  /* DESCRIPTION */
+
+  .card-desc {
+    font-size: 0.84rem;
+
+    line-height: 1.4;
+  }
+
+  /* IMAGE */
+
+  .card-img {
+    height: 29vh;
+
+    min-height: 165px;
+    max-height: 240px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+  .card-inner {
+    padding: 17px;
+
+    gap: 12px;
+  }
+
+  .card-info {
+    font-size: 10px;
+  }
+
+  .card-title h1 {
+    font-size: clamp(2.5rem, 14vw, 3.5rem);
+  }
+
+  .card-desc {
+    font-size: 0.78rem;
+  }
+
+  .card-img {
+    height: 27vh;
+
+    min-height: 150px;
+  }
+}
+
+/* =========================================================
+   LANDSCAPE MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .card {
+    height: 100svh;
+    min-height: 500px;
+  }
+
+  .card-inner {
+    height: 100%;
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr);
+
+    grid-template-rows:
+      auto
+      1fr
+      auto;
+
+    gap: 20px;
+  }
+
+  .card-info {
+    grid-column: 1;
+    grid-row: 1;
+
+    order: initial;
+  }
+
+  .card-title {
+    grid-column: 1;
+    grid-row: 2;
+
+    order: initial;
+  }
+
+  .card-desc {
+    grid-column: 1;
+    grid-row: 3;
+
+    order: initial;
+  }
+
+  .card-img {
+    grid-column: 2;
+    grid-row: 1 / 4;
+
+    order: initial;
+
+    width: 100%;
+    height: 100%;
+
+    min-height: 0;
+  }
+
+  .card-title h1 {
+    font-size: clamp(2.5rem, 7vw, 4rem);
+  }
+
+  .card-desc {
+    font-size: 0.8rem;
+  }
+}
+
+/* =========================================================
+   REDUCE MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .card-inner {
+    will-change: auto;
   }
 }
 
 :root {
-  --font-body: 'DM Sans', sans-serif;
-  --font-display: 'Playfair Display', serif;
-  --font-inter: 'Inter', sans-serif;
-  --font-montserrat: 'Montserrat', sans-serif;
-  --font-playfair: 'Playfair Display', serif;
-  --font-pixel: 'Pixelify Sans', sans-serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-display: "Playfair Display", serif;
+  --font-inter: "Inter", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-playfair: "Playfair Display", serif;
+  --font-pixel: "Pixelify Sans", sans-serif;
 
   /* Warm Coffee Palette */
   --background: 30 20% 98%;
@@ -244,10 +713,7 @@
   letter-spacing: -0.02em;
 }
 
-
-
 @layer base {
-
   body {
     @apply bg-white text-black antialiased;
 

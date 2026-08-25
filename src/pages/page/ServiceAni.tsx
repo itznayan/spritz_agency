@@ -4,52 +4,51 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import TextAni from "@/components/TextAni";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const BLOCK_COLORS = {
-  card1: "#fbbf24",
-  card2: "#0f766e",
-  card3: "#166534",
-  card4: "#5b21b6",
-};
 
 const ServiceAni = () => {
   const container = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
-      /* ─────────────────────────────────────────────
-         🔥 SLOW SCROLL ONLY WHILE SECTION IS ACTIVE
-      ───────────────────────────────────────────── */
+      /* =====================================================
+         SLOW SCROLL ONLY WHILE SECTION IS ACTIVE
+      ===================================================== */
+
       ScrollTrigger.create({
         trigger: container.current,
         start: "top top",
         end: "bottom bottom",
+
         onEnter: () =>
           ScrollTrigger.normalizeScroll({
-            momentum: 0.15, // 🔥 slow
+            momentum: 0.15,
             allowNestedScroll: true,
           }),
+
         onEnterBack: () =>
           ScrollTrigger.normalizeScroll({
             momentum: 0.15,
             allowNestedScroll: true,
           }),
-        onLeave: () => ScrollTrigger.normalizeScroll(true), // reset
+
+        onLeave: () => ScrollTrigger.normalizeScroll(true),
+
         onLeaveBack: () => ScrollTrigger.normalizeScroll(true),
       });
 
-      /* ─────────────────────────────────────────────
-         CARD STACK ANIMATIONS (UNCHANGED)
-      ───────────────────────────────────────────── */
+      /* =====================================================
+         CARD STACK ANIMATIONS
+      ===================================================== */
+
       const cards = gsap.utils.toArray<HTMLElement>(".card");
 
       cards.forEach((card, index) => {
         if (index === cards.length - 1) return;
 
         const cardInner = card.querySelector<HTMLElement>(".card-inner");
+
         if (!cardInner) return;
 
         gsap.fromTo(
@@ -65,11 +64,12 @@ const ServiceAni = () => {
             z: -250,
             rotateX: 45,
             scale: 0.95,
+
             scrollTrigger: {
               trigger: cards[index + 1],
               start: "top 95%",
-              end: "+=150%", // holds longer = feels slower
-              scrub: 1, // smooth response
+              end: "+=150%",
+              scrub: 1,
               pin: card,
               pinSpacing: false,
             },
@@ -78,6 +78,7 @@ const ServiceAni = () => {
 
         gsap.to(cardInner, {
           "--after-opacity": 0.4,
+
           scrollTrigger: {
             trigger: cards[index + 1],
             start: "top 75%",
@@ -88,6 +89,7 @@ const ServiceAni = () => {
 
         gsap.to(cardInner, {
           opacity: 0,
+
           scrollTrigger: {
             trigger: cards[index + 1],
             start: "top -25%",
@@ -97,12 +99,22 @@ const ServiceAni = () => {
         });
       });
     },
-    { scope: container },
+    {
+      scope: container,
+    },
   );
 
   return (
-    <section ref={container} className="sticky-card">
-      {/* CARD 1 */}
+    <section
+      ref={container}
+      className="
+        sticky-card w-full overflow-hidden
+      "
+    >
+      {/* =====================================================
+          CARD 1
+      ===================================================== */}
+
       <div className="card" id="card-1">
         <div className="card-inner">
           <div className="card-info text-zinc-200">
@@ -122,12 +134,19 @@ const ServiceAni = () => {
           </div>
 
           <div className="card-img">
-            <img src="/images/web.jpg" alt="Web Development" />
+            <img
+              src="/images/web.jpg"
+              alt="Web Development"
+              draggable={false}
+            />
           </div>
         </div>
       </div>
 
-      {/* CARD 2 */}
+      {/* =====================================================
+          CARD 2
+      ===================================================== */}
+
       <div className="card" id="card-2">
         <div className="card-inner">
           <div className="card-info">
@@ -147,13 +166,20 @@ const ServiceAni = () => {
           </div>
 
           <div className="card-img">
-            <img src="/images/content.jpg" alt="Content Creation" />
+            <img
+              src="/images/content.jpg"
+              alt="Content Creation"
+              draggable={false}
+            />
           </div>
         </div>
       </div>
 
-      {/* CARD 3 */}
-      <div className="card" id="card-3">
+      {/* =====================================================
+          CARD 3
+      ===================================================== */}
+
+      <div className="card " id="card-3">
         <div className="card-inner">
           <div className="card-info">
             <p>Data-driven growth strategies</p>
@@ -172,14 +198,21 @@ const ServiceAni = () => {
           </div>
 
           <div className="card-img">
-            <img src="/images/growth.jpg" alt="Analytics & Growth" />
+            <img
+              src="/images/growth.jpg"
+              alt="Analytics & Growth"
+              draggable={false}
+            />
           </div>
         </div>
       </div>
 
-      {/* CARD 4 */}
+      {/* =====================================================
+          CARD 4
+      ===================================================== */}
+
       <div className="card" id="card-4">
-        <div className="card-inner">
+        <div className="card-inner ">
           <div className="card-info text-zinc-200">
             <p>Complete Instagram & Facebook handling</p>
           </div>
@@ -197,7 +230,11 @@ const ServiceAni = () => {
           </div>
 
           <div className="card-img">
-            <img src="/images/analy.jpg" alt="Social Media Management" />
+            <img
+              src="/images/analy.jpg"
+              alt="Social Media Management"
+              draggable={false}
+            />
           </div>
         </div>
       </div>

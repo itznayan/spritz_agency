@@ -1,18 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
+
 import AboutInfo from "./About/AboutInfo";
 import Modal from "./About/model";
-import ProjectAni from "./About/ProjectAni";
 
 const About = () => {
   const projects = [
-    {
-      title: "Nayan Mahera",
-      role: "Frontend Developer",
-      src: "/nayan1.png",
-      color: "#000000",
-    },
     {
       title: "Jatin Singh",
       role: "Tech Lead",
@@ -31,25 +25,90 @@ const About = () => {
       src: "img3",
       color: "#706D63",
     },
+    {
+      title: "Oreki Coder",
+      role: "Frontend Developer & SDE",
+      src: "/nayan1.png",
+      color: "#000000",
+    },
   ];
 
-  const [modal, setModal] = useState({ active: false, index: 0 });
+  const [modal, setModal] = useState({
+    active: false,
+    index: 0,
+  });
 
   return (
-    <div className="relative w-full min-h-screen bg-zinc-900 pt-12">
-      {/* HERO COPY */}
-      {/* HERO COPY */}
-      {/* HERO SECTION */}
-      <section className="bg-zinc-900 text-white px-6 lg:px-20 pt-32 pb-28">
-        <div className="max-w-6xl mx-auto">
-          {/* Headline */}
-          <h1 className="max-w-4xl text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-mono font-extrabold leading-tight mb-10">
+    <div className="relative min-h-screen w-full overflow-x-hidden bg-zinc-900 text-white">
+      {/* =====================================================
+          HERO
+      ===================================================== */}
+
+      <section
+        className="
+          bg-zinc-900
+          px-5
+          pt-28
+          pb-14
+          sm:px-8
+          sm:pt-32
+          sm:pb-18
+          md:px-10
+          md:pt-36
+          md:pb-20
+          lg:px-20
+          lg:pt-40
+          lg:pb-28
+        "
+      >
+        <div className="mx-auto w-full max-w-6xl">
+          {/* HEADLINE */}
+
+          <h1
+            className="
+              mb-7
+              max-w-5xl
+              font-mono
+              text-3xl
+              font-extrabold
+              leading-[1.05]
+              tracking-tight
+
+              sm:text-4xl
+
+              md:mb-9
+              md:text-5xl
+              md:leading-[1.08]
+
+              lg:mb-10
+              lg:text-6xl
+
+              xl:text-7xl
+            "
+          >
             We build your presence.
             <span className="block text-zinc-300">We drive the attention.</span>
           </h1>
 
-          {/* Description */}
-          <div className="max-w-3xl space-y-6 text-zinc-300 text-base md:text-lg leading-relaxed">
+          {/* DESCRIPTION */}
+
+          <div
+            className="
+              max-w-3xl
+              space-y-4
+              text-sm
+              leading-6
+              text-zinc-300
+
+              sm:space-y-5
+              sm:text-base
+              sm:leading-7
+
+              md:space-y-6
+              md:text-lg
+              md:leading-relaxed
+            "
+          >
             <p>
               We design and develop modern websites that clearly represent your
               brand and convert visitors into customers.
@@ -62,29 +121,102 @@ const About = () => {
               opportunities.
             </p>
 
-            <p className="text-white font-medium">
+            <p className="font-medium text-white">
               The result? More visibility. More engagement. Better performance.
             </p>
           </div>
         </div>
       </section>
 
-      <div className=" w-full px-20">
-        <h1 className="text-zinc-100 text-7xl font-mono ">Our Team</h1>
-        <div className="px-12 py-6">
-          {projects.map((project, index) => (
-            <AboutInfo
-              key={index}
-              index={index}
-              title={project.title}
-              active={modal.active && modal.index === index}
-              setModal={setModal}
-              role={project.role}
-            />
-          ))}
+      {/* =====================================================
+          TEAM
+      ===================================================== */}
+
+      <section
+        className="
+          w-full
+          px-5
+          pb-20
+
+          sm:px-8
+          sm:pb-24
+
+          md:px-10
+          md:pb-28
+
+          lg:px-20
+          lg:pb-32
+        "
+      >
+        <div className="mx-auto w-full max-w-7xl">
+          {/* TEAM TITLE */}
+
+          <div
+            className="
+              mb-7
+
+              sm:mb-9
+
+              md:mb-11
+
+              lg:mb-12
+            "
+          >
+            <h2
+              className="
+                font-mono
+                text-4xl
+                font-bold
+                leading-none
+                tracking-tight
+                text-zinc-100
+
+                sm:text-5xl
+
+                md:text-6xl
+
+                lg:text-7xl
+              "
+            >
+              Our Team
+            </h2>
+          </div>
+
+          {/* TEAM LIST */}
+
+          <div
+            className="
+              w-full
+              px-0
+
+              sm:px-1
+
+              md:px-2
+
+              lg:px-12
+          "
+          >
+            {projects.map((project, index) => (
+              <AboutInfo
+                key={index}
+                index={index}
+                title={project.title}
+                role={project.role}
+                active={modal.active && modal.index === index}
+                setModal={setModal}
+              />
+            ))}
+          </div>
         </div>
+      </section>
+
+      {/* =====================================================
+          DESKTOP MODAL ONLY
+      ===================================================== */}
+
+      <div className="hidden lg:block">
+        <Modal modal={modal} projects={projects} />
       </div>
-      <Modal modal={modal} projects={projects} />
     </div>
   );
 };

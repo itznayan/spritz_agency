@@ -15,7 +15,7 @@ export default function Home() {
     >
       <Hero />
       <Service />
-      <Demo />
+      {/* <Demo /> */}
     </div>
   );
 }

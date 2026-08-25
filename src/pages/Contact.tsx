@@ -1,20 +1,42 @@
-import { Navigation } from "@/components/Navigation";
-import { Footer } from "@/components/Footer";
+"use client";
+
 import { motion } from "framer-motion";
 import { Mail, Phone } from "lucide-react";
-import StickyFooter from "../components/Footer/StickyFooter";
+
 import Eyes from "../components/Eyes";
 import TextAni from "../components/TextAni";
+
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-zinc-950 font-body">
-      <section className="pt-32 pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div className="min-h-screen w-full overflow-x-hidden bg-zinc-950 font-body">
+      {/* =====================================================
+          HERO
+      ===================================================== */}
+
+      <section className="px-4 pt-28 pb-14 sm:px-6 sm:pt-32 sm:pb-16 md:pb-20 lg:px-8">
+        <div className="mx-auto w-full max-w-7xl text-center">
           <TextAni delay={0.75} blockColor="#94A3B8">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-6xl text-zinc-200 font-mono font-bold mb-6"
+              transition={{
+                duration: 0.6,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="
+                mx-auto
+                max-w-5xl
+                font-mono
+                text-3xl
+                font-bold
+                leading-[1.05]
+                tracking-tight
+                text-zinc-200
+                sm:text-4xl
+                md:text-5xl
+                lg:text-6xl
+                xl:text-7xl
+              "
             >
               Let’s build the vision you believe in.
             </motion.h1>
@@ -24,8 +46,21 @@ export default function Contact() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-xl text-muted-foreground max-w-2xl text-zinc-300 mx-auto"
+              transition={{
+                delay: 0.1,
+                duration: 0.6,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="
+                mx-auto
+                mt-5
+                max-w-2xl
+                text-base
+                leading-relaxed
+                text-zinc-300
+                sm:text-lg
+                md:text-xl
+              "
             >
               Ready to elevate your online presence? Fill out the form below or
               book a call directly.
@@ -34,189 +69,477 @@ export default function Contact() {
         </div>
       </section>
 
-      <Eyes />
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Contact Info */}
+      {/* =====================================================
+          EYES
+      ===================================================== */}
+
+      <div className="w-full overflow-hidden">
+        <Eyes />
+      </div>
+
+      {/* =====================================================
+          CONTACT SECTION
+      ===================================================== */}
+
+      <section className="px-4 py-14 sm:px-6 sm:py-16 md:py-20 lg:px-8">
+        <div className="mx-auto w-full max-w-7xl">
+          <div
+            className="
+              grid
+              grid-cols-1
+              gap-12
+              lg:grid-cols-2
+              lg:gap-16
+              xl:gap-24
+            "
+          >
+            {/* =================================================
+                CONTACT INFORMATION
+            ================================================= */}
+
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2 }}
+              transition={{
+                delay: 0.2,
+                duration: 0.6,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="w-full"
             >
               <TextAni blockColor="#94A3B8">
-                <h2 className="text-3xl font-display text-zinc-100 font-bold mb-8">
+                <h2
+                  className="
+                    mb-5
+                    font-display
+                    text-2xl
+                    font-bold
+                    text-zinc-100
+                    sm:text-3xl
+                    md:mb-8
+                  "
+                >
                   Get in Touch
                 </h2>
               </TextAni>
 
               <TextAni blockColor="#94A3B8">
-                <p className="text-lg text-zinc-200 mb-12">
+                <p
+                  className="
+                    max-w-xl
+                    text-base
+                    leading-relaxed
+                    text-zinc-200
+                    sm:text-lg
+                  "
+                >
                   From the city to clients around the world, we help brands turn
                   ideas into meaningful experiences. Reach out for inquiries or
                   custom project quotes.
                 </p>
               </TextAni>
 
-              <div className="space-y-8">
+              {/* CONTACT DETAILS */}
+
+              <div className="mt-10 space-y-7 sm:mt-12 sm:space-y-8">
                 {/* EMAIL */}
-                <div className="flex items-start space-x-4">
-                  <div className="p-3 bg-secondary rounded-xl text-accent">
-                    <Mail className="h-6 w-6 invert" />
+
+                <div className="flex items-start gap-4">
+                  <div
+                    className="
+                      flex
+                      h-11
+                      w-11
+                      shrink-0
+                      items-center
+                      justify-center
+                      rounded-xl
+                      bg-zinc-800
+                      sm:h-12
+                      sm:w-12
+                    "
+                  >
+                    <Mail className="h-5 w-5 text-white sm:h-6 sm:w-6" />
                   </div>
-                  <div>
+
+                  <div className="min-w-0">
                     <TextAni blockColor="#94A3B8">
-                      <h3 className="font-bold text-lg mb-1 font-mono text-zinc-200">
+                      <h3
+                        className="
+                          mb-1
+                          font-mono
+                          text-base
+                          font-bold
+                          text-zinc-200
+                          sm:text-lg
+                        "
+                      >
                         Email Us
                       </h3>
                     </TextAni>
 
                     <TextAni blockColor="#94A3B8">
-                      <p className="font-mono text-zinc-300">
+                      <p
+                        className="
+                          break-all
+                          font-mono
+                          text-sm
+                          text-zinc-300
+                          sm:text-base
+                        "
+                      >
                         admin@spritzstudio.in
                       </p>
                     </TextAni>
-
-                    {/* <TextAni blockColor="#94A3B8">
-                      <p className="font-mono text-zinc-300">
-                        support@espressomedia.com
-                      </p>
-                    </TextAni> */}
                   </div>
                 </div>
 
                 {/* PHONE */}
-                <div className="flex items-start space-x-4">
-                  <div className="p-3 bg-secondary rounded-xl text-accent">
-                    <Phone className="invert h-6 w-6" />
+
+                <div className="flex items-start gap-4">
+                  <div
+                    className="
+                      flex
+                      h-11
+                      w-11
+                      shrink-0
+                      items-center
+                      justify-center
+                      rounded-xl
+                      bg-zinc-800
+                      sm:h-12
+                      sm:w-12
+                    "
+                  >
+                    <Phone className="h-5 w-5 text-white sm:h-6 sm:w-6" />
                   </div>
-                  <div>
+
+                  <div className="min-w-0">
                     <TextAni blockColor="#94A3B8">
-                      <h3 className="font-bold text-lg mb-1 font-mono text-zinc-100">
+                      <h3
+                        className="
+                          mb-1
+                          font-mono
+                          text-base
+                          font-bold
+                          text-zinc-100
+                          sm:text-lg
+                        "
+                      >
                         Call Us
                       </h3>
                     </TextAni>
 
                     <TextAni blockColor="#94A3B8">
-                      <p className="text-zinc-300">+91 XXXXXXXXXX</p>
-                    </TextAni>
-                    <TextAni blockColor="#94A3B8">
-                      <p className="text-zinc-300">+91 XXXXXXXXXX</p>
+                      <p className="text-sm text-zinc-300 sm:text-base">
+                        +91 XXXXXXXXXX
+                      </p>
                     </TextAni>
 
-                    {/* <TextAni blockColor="#94A3B8">
-                      <p className="text-sm text-zinc-300 mt-1">
-                        Mon-Fri from 9am to 6pm
+                    <TextAni blockColor="#94A3B8">
+                      <p className="text-sm text-zinc-300 sm:text-base">
+                        +91 XXXXXXXXXX
                       </p>
-                    </TextAni> */}
+                    </TextAni>
                   </div>
                 </div>
               </div>
             </motion.div>
 
-            {/* Form */}
+            {/* =================================================
+                CONTACT FORM
+            ================================================= */}
+
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3 }}
-              className="bg-stone-300 p-8 md:p-10 rounded-3xl shadow-xl shadow-black/5 border border-border/50"
+              transition={{
+                delay: 0.3,
+                duration: 0.6,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="
+                w-full
+                rounded-2xl
+                bg-stone-300
+                p-5
+                shadow-xl
+                shadow-black/10
+                sm:rounded-3xl
+                sm:p-7
+                md:p-10
+              "
             >
-              <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
+              <h3
+                className="
+                  mb-6
+                  text-xl
+                  font-bold
+                  text-zinc-900
+                  sm:text-2xl
+                "
+              >
+                Send a Message
+              </h3>
+
               <form
                 action="https://formspree.io/f/mwvvkrop"
                 method="POST"
-                className="space-y-6"
+                className="space-y-5 sm:space-y-6"
               >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
+                {/* NAME + BUSINESS */}
+
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
+                  {/* NAME */}
+
+                  <div className="min-w-0">
                     <label
                       htmlFor="name"
-                      className="block text-sm font-medium mb-2"
+                      className="
+                        mb-2
+                        block
+                        text-sm
+                        font-medium
+                        text-zinc-900
+                      "
                     >
                       Name
                     </label>
+
                     <input
                       type="text"
                       id="name"
                       name="name"
                       required
                       placeholder="John Doe"
-                      className="w-full px-4 py-3 bg-secondary/30 border-transparent focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary rounded-lg transition-colors h-12"
+                      className="
+                        h-12
+                        w-full
+                        rounded-lg
+                        border
+                        border-transparent
+                        bg-zinc-200
+                        px-4
+                        text-sm
+                        text-zinc-900
+                        outline-none
+                        transition-all
+                        placeholder:text-zinc-500
+                        focus:border-zinc-400
+                        focus:bg-white
+                        focus:ring-2
+                        focus:ring-zinc-900/20
+                        sm:text-base
+                      "
                     />
                   </div>
 
-                  <div>
+                  {/* BUSINESS */}
+
+                  <div className="min-w-0">
                     <label
                       htmlFor="businessName"
-                      className="block text-sm font-medium mb-2"
+                      className="
+                        mb-2
+                        block
+                        text-sm
+                        font-medium
+                        text-zinc-900
+                      "
                     >
                       Business Name
                     </label>
+
                     <input
                       type="text"
                       id="businessName"
                       name="businessName"
                       placeholder="Cool Beans Café"
-                      className="w-full px-4 py-3 bg-secondary/30 border-transparent focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary rounded-lg transition-colors h-12"
+                      className="
+                        h-12
+                        w-full
+                        rounded-lg
+                        border
+                        border-transparent
+                        bg-zinc-200
+                        px-4
+                        text-sm
+                        text-zinc-900
+                        outline-none
+                        transition-all
+                        placeholder:text-zinc-500
+                        focus:border-zinc-400
+                        focus:bg-white
+                        focus:ring-2
+                        focus:ring-zinc-900/20
+                        sm:text-base
+                      "
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
+                {/* EMAIL + PHONE */}
+
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
+                  {/* EMAIL */}
+
+                  <div className="min-w-0">
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium mb-2"
+                      className="
+                        mb-2
+                        block
+                        text-sm
+                        font-medium
+                        text-zinc-900
+                      "
                     >
                       Email
                     </label>
+
                     <input
                       type="email"
                       id="email"
                       name="email"
                       required
                       placeholder="john@example.com"
-                      className="w-full px-4 py-3 bg-secondary/30 border-transparent focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary rounded-lg transition-colors h-12"
+                      className="
+                        h-12
+                        w-full
+                        rounded-lg
+                        border
+                        border-transparent
+                        bg-zinc-200
+                        px-4
+                        text-sm
+                        text-zinc-900
+                        outline-none
+                        transition-all
+                        placeholder:text-zinc-500
+                        focus:border-zinc-400
+                        focus:bg-white
+                        focus:ring-2
+                        focus:ring-zinc-900/20
+                        sm:text-base
+                      "
                     />
                   </div>
 
-                  <div>
+                  {/* PHONE */}
+
+                  <div className="min-w-0">
                     <label
                       htmlFor="phone"
-                      className="block text-sm font-medium mb-2"
+                      className="
+                        mb-2
+                        block
+                        text-sm
+                        font-medium
+                        text-zinc-900
+                      "
                     >
                       Phone (Optional)
                     </label>
+
                     <input
                       type="tel"
                       id="phone"
                       name="phone"
-                      placeholder="+1 (555) ..."
-                      className="w-full px-4 py-3 bg-secondary/30 border-transparent focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary rounded-lg transition-colors h-12"
+                      placeholder="+91 XXXXX XXXXX"
+                      className="
+                        h-12
+                        w-full
+                        rounded-lg
+                        border
+                        border-transparent
+                        bg-zinc-200
+                        px-4
+                        text-sm
+                        text-zinc-900
+                        outline-none
+                        transition-all
+                        placeholder:text-zinc-500
+                        focus:border-zinc-400
+                        focus:bg-white
+                        focus:ring-2
+                        focus:ring-zinc-900/20
+                        sm:text-base
+                      "
                     />
                   </div>
                 </div>
 
+                {/* MESSAGE */}
+
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium mb-2"
+                    className="
+                      mb-2
+                      block
+                      text-sm
+                      font-medium
+                      text-zinc-900
+                    "
                   >
                     Message
                   </label>
+
                   <textarea
                     id="message"
                     name="message"
                     required
-                    placeholder="Tell us about your café and what you're looking for..."
+                    placeholder="Tell us about your business and what you're looking for..."
                     rows={6}
-                    className="w-full px-4 py-3 bg-secondary/30 border-transparent focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary rounded-lg transition-colors min-h-[150px] resize-none"
+                    className="
+                      min-h-[150px]
+                      w-full
+                      resize-none
+                      rounded-lg
+                      border
+                      border-transparent
+                      bg-zinc-200
+                      px-4
+                      py-3
+                      text-sm
+                      leading-relaxed
+                      text-zinc-900
+                      outline-none
+                      transition-all
+                      placeholder:text-zinc-500
+                      focus:border-zinc-400
+                      focus:bg-white
+                      focus:ring-2
+                      focus:ring-zinc-900/20
+                      sm:text-base
+                    "
                   />
                 </div>
 
+                {/* SUBMIT */}
+
                 <button
                   type="submit"
-                  className="w-full py-4 rounded-xl bg-primary text-primary-foreground font-bold text-lg shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
+                  className="
+                    w-full
+                    rounded-xl
+                    bg-zinc-950
+                    px-6
+                    py-3.5
+                    text-base
+                    font-bold
+                    text-white
+                    shadow-lg
+                    shadow-black/20
+                    transition-all
+                    duration-300
+                    hover:-translate-y-0.5
+                    hover:bg-zinc-800
+                    hover:shadow-xl
+                    active:translate-y-0
+                    sm:py-4
+                    sm:text-lg
+                  "
                 >
                   Send Message
                 </button>
